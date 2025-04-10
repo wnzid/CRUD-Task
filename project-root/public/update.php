@@ -17,7 +17,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $title = trim($_POST['title']);
     $author = trim($_POST['author']);
 
-    // Prepare and execute the update statement
     $stmt = $pdo->prepare("UPDATE books SET title = ?, author = ? WHERE id = ?");
     if ($stmt->execute([$title, $author, $id])) {
         header("Location: list.php");

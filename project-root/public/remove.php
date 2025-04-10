@@ -14,7 +14,7 @@ if (!isset($_GET['id']) || empty($_GET['id'])) {
 
 $id = (int) $_GET['id'];
 
-$stmt = $pdo->prepare("DELETE FROM books WHERE id = ?");
+$stmt = $pdo->prepare("DELETE FROM book WHERE id = ?");
 if ($stmt->execute([$id])) {
     header("Location: list.php");
     exit();
