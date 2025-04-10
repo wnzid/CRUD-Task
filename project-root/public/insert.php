@@ -1,15 +1,17 @@
 <?php
-include "connect.php";
+session_start();
+require_once __DIR__ . '/../includes/db.php';
 
-	$title1=$_GET["title"];
-	$author1=$_GET["author"];
-	//print ($title." ");
-	$sql="INSERT INTO book (title, author) VALUES ('".$title1."','".$author1."')";
-	
-	if ($conn->query($sql) == TRUE) {
-		print ("New record created");
-		print ("<a href=list.php> List </a>");
-	} else {
-		print ("Klaida");
-	}
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $title = trim($_POST['title']);
+    $author = trim($_POST['author']);
+    
+    $stmt = $pdo->prepare("INSERT INTO books (title, author) VALUES (?, ?)");
+    if ($stmt->execute([$title, $author])) {
+        header("Location: list.php");
+        exit();
+    } else {
+        echo "Error inserting book record.";
+    }
+}
 ?>
