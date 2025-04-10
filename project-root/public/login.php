@@ -1,3 +1,12 @@
+<?php
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
+if (isset($_SESSION['user_id'])) {
+    header("Location: dashboard.php");
+    exit();
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -60,14 +69,24 @@
       color: #333;
       text-decoration: none;
     }
+    .error {
+      text-align: center;
+      color: red;
+      margin-bottom: 1em;
+    }
   </style>
 </head>
 <body>
   <h2>Login</h2>
+  <?php
+  if (isset($_GET['error'])) {
+      echo "<div class='error'>" . htmlspecialchars($_GET['error']) . "</div>";
+  }
+  ?>
   <form action="login_process.php" method="post">
     <div class="form-row">
-      <label for="email">Email:</label>
-      <input type="text" name="email" id="email" required>
+      <label for="username">Username:</label>
+      <input type="text" name="username" id="username" required>
     </div>
     <div class="form-row">
       <label for="password">Password:</label>
