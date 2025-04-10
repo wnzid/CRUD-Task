@@ -13,11 +13,11 @@ if (session_status() === PHP_SESSION_NONE) {
 <body>
 <header>
   <?php if (isset($_SESSION['username'])): ?>
-      <p>Welcome, <?php echo htmlspecialchars($_SESSION['username']); ?>!</p>
+      <p>User online: <?php echo htmlspecialchars($_SESSION['username']); ?>!</p>
       <nav>
           <a href="dashboard.php">Dashboard</a> |
           <a href="list.php">Book List</a> |
-          <a href="logout.php">Logout</a>
+          <a href="../project-root/public/logout.php">Logout</a>
       </nav>
   <?php else: ?>
       <nav>
