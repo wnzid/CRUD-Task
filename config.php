@@ -1,6 +1,6 @@
 <?php
 $host = 'localhost';
-$dbname = 'crud_db';
+$dbname = 'book';
 $user = 'root';
 $pass = '';
 ?>
