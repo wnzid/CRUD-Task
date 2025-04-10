@@ -39,3 +39,4 @@ if (!$user) {
 </form>
 <p><a href="list_users.php">Back to User Management</a></p>
 <?php include_once __DIR__ . '/../includes/footer.php'; ?>
+<!--done-->

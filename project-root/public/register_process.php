@@ -5,7 +5,7 @@ require_once __DIR__ . '/../includes/db.php';
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $username = trim($_POST['username']);
     $password = trim($_POST['password']);
-    
+
     if (empty($username) || empty($password)) {
         echo "Please fill in all required fields.";
         exit();
@@ -24,4 +24,5 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     header("Location: register.php");
     exit();
 }
+//done
 ?>

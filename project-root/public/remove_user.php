@@ -26,4 +26,5 @@ if ($stmt->execute([$id])) {
 } else {
     echo "Error deleting user.";
 }
+//done
 ?>

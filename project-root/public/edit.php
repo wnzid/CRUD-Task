@@ -40,3 +40,4 @@ if (!$book) {
 </form>
 <p><a href="list.php">Back to Book List</a></p>
 <?php include_once __DIR__ . '/../includes/footer.php'; ?>
+<!--done-->

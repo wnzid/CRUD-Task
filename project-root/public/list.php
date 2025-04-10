@@ -107,7 +107,7 @@ $books = $stmt->fetchAll();
 </head>
 <body>
   <header>
-    <h1>My Book Management System</h1>
+    <h1>Eclat Book Management System</h1>
     <p>Welcome, <?php echo htmlspecialchars($_SESSION['username']); ?>!</p>
   </header>
   <nav>
@@ -155,3 +155,4 @@ $books = $stmt->fetchAll();
   </footer>
 </body>
 </html>
+<!--done-->

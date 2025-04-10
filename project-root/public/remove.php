@@ -21,4 +21,5 @@ if ($stmt->execute([$id])) {
 } else {
     echo "Error deleting the book.";
 }
+//done
 ?>

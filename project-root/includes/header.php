@@ -7,7 +7,7 @@ if (session_status() === PHP_SESSION_NONE) {
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title><?php echo $pageTitle ?? 'Eclat Book Management System'; ?></title>
+  <title><?php echo $pageTitle ?? 'EclatBook Management System'; ?></title>
   <link rel="stylesheet" href="styles.css"> 
 </head>
 <body>
@@ -27,3 +27,4 @@ if (session_status() === PHP_SESSION_NONE) {
   <?php endif; ?>
 </header>
 <main>
+<!--done-->
