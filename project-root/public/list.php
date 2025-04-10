@@ -9,7 +9,7 @@ $pageTitle = "Book List";
 include_once __DIR__ . '/../includes/header.php';
 require_once __DIR__ . '/../includes/db.php';
 
-$stmt = $pdo->query("SELECT * FROM books ORDER BY id ASC");
+$stmt = $pdo->query("SELECT * FROM book ORDER BY id ASC");
 $books = $stmt->fetchAll();
 ?>
 <h2>Book List</h2>
