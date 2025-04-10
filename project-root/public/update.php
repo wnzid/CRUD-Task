@@ -1,17 +1,32 @@
 <?php
-include "connect.php";
+session_start();
+if (!isset($_SESSION['user_id'])) {
+    header("Location: login.php");
+    exit();
+}
 
-	$id=$_GET["id"];
-	$title=$_GET["title"];
-	$author=$_GET["author"];
-	
-	$sql=("UPDATE book SET title ='$title', author ='$author' WHERE id=$id");
-	if ($conn->query($sql) == TRUE) {
-			print ("Updated: $id <br>" );
-			print ("<a href=list.php> List </a>");	
-		}
-		else
-		{
-			print("Error ");
-		}
+require_once __DIR__ . '/../includes/db.php';
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    if (!isset($_POST['id'], $_POST['title'], $_POST['author'])) {
+        echo "Missing required fields.";
+        exit();
+    }
+    
+    $id = (int) $_POST['id'];
+    $title = trim($_POST['title']);
+    $author = trim($_POST['author']);
+
+    // Prepare and execute the update statement
+    $stmt = $pdo->prepare("UPDATE books SET title = ?, author = ? WHERE id = ?");
+    if ($stmt->execute([$title, $author, $id])) {
+        header("Location: list.php");
+        exit();
+    } else {
+        echo "Error updating the book.";
+    }
+} else {
+    header("Location: list.php");
+    exit();
+}
 ?>

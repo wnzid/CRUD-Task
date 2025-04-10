@@ -1,12 +1,24 @@
 <?php
-include "connect.php";
-	$id=$_GET["id"];
-	print ($id." ");
-	$sql="DELETE FROM book WHERE id=$id";
-	if ($conn->query($sql) == TRUE) {
-		print ( "Removed");
-		print ("<a href=list.php> List </a>");
-		} else {
-			print ("error");
-		}
+session_start();
+if (!isset($_SESSION['user_id'])) {
+    header("Location: login.php");
+    exit();
+}
+
+require_once __DIR__ . '/../includes/db.php';
+
+if (!isset($_GET['id']) || empty($_GET['id'])) {
+    echo "Invalid request.";
+    exit();
+}
+
+$id = (int) $_GET['id'];
+
+$stmt = $pdo->prepare("DELETE FROM books WHERE id = ?");
+if ($stmt->execute([$id])) {
+    header("Location: list.php");
+    exit();
+} else {
+    echo "Error deleting the book.";
+}
 ?>
