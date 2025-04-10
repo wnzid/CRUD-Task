@@ -7,7 +7,7 @@ if (session_status() === PHP_SESSION_NONE) {
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title><?php echo $pageTitle ?? 'Book Management System'; ?></title>
+  <title><?php echo $pageTitle ?? 'Eclat Book Management System'; ?></title>
   <link rel="stylesheet" href="styles.css"> 
 </head>
 <body>
@@ -17,7 +17,7 @@ if (session_status() === PHP_SESSION_NONE) {
       <nav>
           <a href="dashboard.php">Dashboard</a> |
           <a href="list.php">Book List</a> |
-          <a href="../project-root/public/logout.php">Logout</a>
+          <a href="logout.php">Logout</a>
       </nav>
   <?php else: ?>
       <nav>
