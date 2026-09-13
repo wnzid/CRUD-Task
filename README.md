@@ -1,19 +1,52 @@
-# Book Management CRUD Application
+<div align="center">
 
-## Description
+# Book Management CRUD
 
-This project is a PHP-based CRUD application for managing books and users. It uses MySQL with PDO for database interactions and implements secure user authentication using password hashing and verification. The application allows users to:
+**A session-backed PHP application for managing books and user accounts.**
 
-- **Manage Books:** Create, read, update, and delete book records.
-- **User Management:** Register new users, log in securely, and manage existing users (edit or delete users).
-- **Session Handling:** Maintain a session that stores user details (ID and username) upon successful login and display the online user’s name in the header.
-- **Modern UI:** The application is built with a responsive, clean, and modern interface using HTML and CSS.
+`PHP` · `MySQL` · `PDO` · `Server-rendered HTML`
 
-The project is organized into directories to separate configuration files, reusable includes, public-facing pages, and SQL scripts for easy maintenance and scalability.
+</div>
 
-## Update Log  
-- v1 - All necessary folder/files was created, most files were empty while commiting the v1.
-- v2 - Base code was written, the author runned the code time to time to check for errors.
-- v3 - Base code was imporved and the code was perfectly working.
-- v4 - Some error fixing for few specific files.
-- v5 - The author is satisfied with the program and in every file a comment(done) was added. 
+The application covers a complete introductory CRUD workflow: authenticated users can create, browse, update, and delete book records, while a separate administration flow manages application users.
+
+## Features
+
+- Account registration and sign-in with hashed passwords
+- PHP session handling and authenticated page guards
+- Book creation, listing, editing, and deletion
+- User listing, editing, and deletion
+- PDO-based MySQL access with prepared statements
+- Shared headers, footers, and responsive styling
+
+## Run locally
+
+1. Start Apache and MySQL using XAMPP, WAMP, MAMP, or an equivalent stack.
+2. Create the application database with the SQL files in `project-root/sql/`.
+3. Review the database values in `project-root/config/config.php`.
+4. Serve `project-root/public/` as the web root.
+5. Open the local URL exposed by your web server.
+
+For PHP's built-in server:
+
+```bash
+php -S localhost:8000 -t project-root/public
+```
+
+## Structure
+
+```text
+project-root/
+├── config/      Database configuration
+├── includes/    Connection and shared layout
+├── public/      Authentication, book, and user routes
+└── sql/         Database schema and seed material
+```
+
+## Security scope
+
+This is a learning project, not a production-ready administration system. Before public deployment, move credentials into environment variables, add CSRF protection, restrict user-management routes by role, and review session/cookie settings.
+
+## License
+
+No license is currently declared. All rights are reserved by default.
